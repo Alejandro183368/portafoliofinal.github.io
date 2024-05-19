@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myform" onsubmit="return validar();"> <!--Aqui con el evento onsubmint checamos cuando este es presionado el boton-->
+        <p>Usuario <input id="user" name="user" type="text" /></p> 
+        <p>Contraseña <input id="password" name="password" type="password"/></p>
+        <p><input type="submit" /></p>
+    <script>
+        function validar(){
+            var user=(document.forms[0].user.value);
+            var password=(document.forms[0].user.value);
+            if(password=='admin' && user=='admin'){
+                document.write("<a href=https://183368.000webhostapp.com/Segundo_P/segundo_parcial.html>Bienvenido</a");
+            }else{
+                document.write("<a href=login.html>Accesso Denegado</a>");
+            }
+        }
+    </script>
+</body>
+</html>

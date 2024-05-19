@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-Menú</title>
+    <style>
+        div{
+            border: 2px solid darkblue;
+            margin: 5px;
+        }
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    h1{
+        color: darkblue;
+        background-color: rgba(128, 113, 113, 0.585);
+        padding: 10px;
+        position: relative;
+        top: -22px;
+    }
+    h2{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+        color: rgb(133, 5, 5);
+    }
+    button{
+        margin: 10px;
+        background-color: darkblue;
+        font-family: Verdana;
+        color: white;
+
+        padding: 6px;
+
+    }
+    button:hover{
+        color: white;
+        background-color: rgb(133, 5, 5);
+    }
+    </style>
+
+
+</head>
+<body>
+    <center>
+    <h1>MENÚ DE JAVASCRIPT</h1>
+    <div id="primer semana">        
+            <h2>Practicas Primer Semana</h2>
+            <button onclick="Generaparrafos()">Genera Parrafos</button>
+            <button onclick="table()">Tabla según Usuario</button>
+            <button onclick="table_2()">Tabla Caracter</button>
+            <button onclick="table_3()">Tabla con Imagen</button><br>
+            <button onclick="table_4()">Tabla Randoms</button>
+            <button onclick="login()">Login</button>
+            <button onclick="converter()">Convertidor de Grados</button>
+            <button onclick="arrays()">Arreglos</button>
+            <p id="demo"></p>
+        
+    </div>
+    <div id="segunda semana">
+        <form id="myform" onsubmit="return menu();">
+            <h2>Practicas Segunda Semana</h2>
+            <p>Selecciona la practica que desees ver</p>
+            <p>
+                <select name="practicas" id="practicas">
+                    <option value="0">----------------------------------</option>
+                    <option value="1">Alerta y Prompt</option>
+                    <option value="2">Graficas de Calificaciones</option>
+                    <option value="3">Grafico Aleatorio</option>
+                    <option value="4">Ahorcado con Canva</option>
+                    <option value="8">Ejemplo Grafica Función</option>
+                    <option value="5">Geolocalizacion</option>
+                    <option value="6">Mapa con Geolocalizacion</option>
+                    <option value="7">Reto Grafica Funciones con  Limite</option>
+                </select>
+            </p>
+        <p><input type="submit"></p>
+        </form>
+    </div>
+    <div id="Aisladas">
+        <h2>Practicas "Tercera" Semana</h2>
+        <button onclick="ahorcado()">Tabla según Usuario</button>
+        <button onclick="test()">Test Violencia</button>
+        <button onclick="p()">Reto Piramide</button>
+        <button onclick="pi()">Reto Piramide 2</button>
+        <p id="dou"></p>
+    </div>
+
+</center>
+    <script>
+        function Generaparrafos(){
+            document.getElementById("demo").innerHTML="<a href=ejecicio_1_js.html>Ejercicio 1</a>";   
+        }function table(){
+            document.getElementById("demo").innerHTML="<a href=tabla.html>Ejercicio 2</a>"; 
+        }function table_2(){
+            document.getElementById("demo").innerHTML="<a href=variante_b.html>Ejercicio 3</a>";   
+        }function table_3(){
+            document.getElementById("demo").innerHTML="<a href=tabla_js.html>Ejercicio 4</a>";   
+        }function table_4(){
+            document.getElementById("demo").innerHTML="<a href=tabala_random.html>Ejercicio 5</a>";   
+        }
+        function login(){
+            document.getElementById("demo").innerHTML="<a href=login.html>Ejercicio 6</a>";   
+        }function converter(){
+            document.getElementById("demo").innerHTML="<a href=conversor.html>Ejercicio 7</a>";   
+        }function arrays(){
+            document.getElementById("demo").innerHTML="<a href=arreglos_js.html>Ejercicio 8</a>";   
+        }function ahorcado(){
+            document.getElementById("dou").innerHTML="<a href=19-ahorcado.html>Jugar ahorcado</a>";   
+        }function test(){
+            document.getElementById("dou").innerHTML="<a href=testalumno.html>Test</a>";   
+        }function p(){
+            document.getElementById("dou").innerHTML="<a href=piramide.html>Piramide 1</a>";   
+        }function pi(){
+            document.getElementById("dou").innerHTML="<a href=ejerciciopdf2.html>Piramide 2</a>"; 
+        }
+    </script>
+    
+    <script>
+    function menu(){ 
+       var opcion= parseInt(document.forms[0].practicas.value); 
+       switch(opcion){
+        case 1:
+            window.location.href = "alert.html";
+            return false;
+        break;
+        case 2:
+            window.location.href = "graficas_calificaciones.html";
+            return false;
+        break;
+        case 3:
+            window.location.href = "grafico_aleatorio.html";
+            return false;
+        break;
+        case 4:
+            window.location.href = "Canva.html";
+            return false;
+        break;
+        case 5:
+            window.location.href = "Geolocalizacion.html";
+            return false;
+        break;
+        case 6:
+            window.location.href = "mapa.html";
+            return false;
+        break;
+        case 7:
+            window.location.href = "Reto_funciones.html";
+            return false;
+        break;
+        case 8:
+            window.location.href = "ejemplo_graficas.html";
+            return false;
+        break;
+       } 
+    } 
+    </script>
+
+</body>
+</html>

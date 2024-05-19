@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>Bienvenida del usuario</title>
+  <style>
+  </style>
+</head>
+<body>
+
+    <form id="myform" onsubmit="return alertName();"> <!--Aqui con el evento onsubmint checamos cuando este es presionado el boton-->
+        <p>Cuantos párrafos <input id="veces" name="veces" type="text" /></p> 
+        <p><input type="submit" /></p>
+        <p><</p>
+    </form>
+
+<script type = "text/javascript">
+    function alertName() { //function + nombre + (parametros)
+      var veces1= parseInt(document.forms[0].veces.value); //var= tipo de variable + nombre var
+      // function(document "busca en el documento" + .forms[0] "Numero de formulario en un arreglo de estructuras de forms"
+      //.veces.value "veces para el campo que se llama y value para obtener los valores de ese campo");
+      //parseInt lo leido pasa a entero para hacer el for
+      for(i=1;i<=veces1;i++)
+      {
+        document.write("<h1>Este es un párrafo</h1>"); //escribe sobre el documento o body
+      }
+      return true;
+    }
+    </script>
+
+</body>
+</html>
+<!--DOM: Forma en la que java interactua con las paginas, Document object algo-- --->

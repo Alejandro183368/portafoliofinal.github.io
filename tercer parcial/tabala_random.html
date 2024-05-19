@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Randoms</title>
+    <style>
+        #myform{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <form id="myform" onsubmit="return Tabla();">
+        <p>Cuantas columnas quieres <input id="columnas" name="columnas" type="text" /></p> 
+        <p>Cuantas filas quieres <input id="filas" name="filas" type="text" /></p>
+        <p><input type="submit" /></p>
+    </form>
+
+    <script>
+        function Tabla(){
+        var columnas= parseInt(document.forms[0].columnas.value); //ParseInt convierte el campo de texto a numerico ´para emplearlo como variable.
+        var filas= parseInt(document.forms[0].filas.value);
+        document.write("<Table border=1"); 
+      for(i=0;i<columnas;i++)
+      {
+        document.write("<tr>");
+            for(j=0;j<filas;j++){
+                var letra= Math.floor(Math.random()*100)+1;//Genera un numero aleatorio de el 1 al 100
+                document.write("<td>",letra,"</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+    <title>Arreglos</title>
+</head>
+    <body>
+        <h1>JS- Arreglos</h1>
+        <h2>ordenación</h2>
+        <p>Click en la opcion</p>
+        <button onclick="myFunction1()">Crear arreglo</button>
+        <button onclick="myFunction2()">Imprime Arreglo</button>
+        <button onclick="myFunction3()">Ordenar Arreglo</button>
+        <button onclick="myFunction4()">De reversa</button>
+        <button onclick="table()">Tabla</button>
+        <button onclick="agregar()">Agregar elemento</button>
+        <button onclick="eliminar()">Elimina Elemento</button>
+        <p id="demo"></p>
+    <script>
+        var arreglo=[0,0,0,0,0,0,0,0,0,0];
+        var longitud=arreglo.length;
+         function myFunction1() {
+            for(i=0;i<longitud;i++){
+                arreglo[i]=(Math.floor(Math.random()*100)+1);
+            }
+            //document.getElementById("demo").innerHTML="Este es el arreglo resultante: "+ arreglo;
+         }
+         function myFunction2() { //imprime arreglo
+            document.getElementById("demo").innerHTML="Este es el arreglo resultante: "+ arreglo;
+         }
+         function myFunction3(){ //de menor a mayor
+            arreglo=arreglo.sort(function(a,b){return a-b});
+            //document.getElementById("demo").innerHTML="Este es el arreglo resultante: "+ arreglo;
+         }
+         function myFunction4(){ //de reversa
+            arreglo=arreglo.reverse(arreglo);
+           //document.getElementById("demo").innerHTML="Este es el arreglo resultante: "+ arreglo;
+         }
+         function table(){
+            var texto="";
+            texto=texto + "<table border=1><tr>";
+            for (i=0;i<longitud;i++){
+                texto= texto +"<td>" + arreglo[i]+ "</td>";
+            }
+            texto=texto + "</tr> </table>"; 
+            document.getElementById("demo").innerHTML= texto;   
+         }
+         function agregar(){
+            var e=Math.floor(Math.random()*100+1);
+            longitud=arreglo.length;
+            arreglo.push(e);
+            
+         }
+         function eliminar(){
+            arreglo=arreglo.pop();
+         }
+    </script>
+</body>
+</html>

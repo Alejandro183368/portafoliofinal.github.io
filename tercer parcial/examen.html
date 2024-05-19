@@ -1,0 +1,372 @@
+<!-- Salida de contraseñas: Por alert o caulquier tipo y por PDF-->
+<!--La longitud mininma de la contraseña debe de ser de 8 caracteres-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genera Contraseñas</title>
+    <script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-ui-1.8.17.custom.min.js"></script>
+	<script type="text/javascript" src="jspdf.js"></script>
+
+	<script type="text/javascript" src="jspdf.plugin.addimage.js"></script>
+
+	<script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script>
+	<script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script>
+	<script type="text/javascript" src="jspdf.plugin.from_html.js"></script>
+<!----------------------------------------------------------------------------------------------------------->
+<style>
+    body{
+        display: flex;
+        justify-content: space-around;
+    }
+    h4{
+        color: darkblue;
+        text-shadow: rgb(88, 88, 88) 1px 1px 1px ;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    p{
+        color: cadetblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+    }
+    h1{
+        color: cadetblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    #button{
+        border-radius: 5px;
+        border: 1px solid black;
+        background-color: darkblue;
+        color: white;
+    }
+    #button:hover{
+        background-color: orange;
+        color: darkblue;
+    }
+    #myform{
+        background-color: rgb(221, 221, 221);
+        text-align: justify;
+        padding: 5px;
+        border: 1px solid black;
+    }
+</style>
+</head>
+<body>
+    <form id="myform" onsubmit="return alertName();"> <!--Aqui con el evento onsubmint checamos cuando este es presionado el boton-->
+        <h1>Generador de Contraseñas</h1>
+        <h4>Selecciona las caracteristicas que desees que posea tu contraseña.</h4>
+        <p style="text-align: center; font-size: small;">Exámen- Jesús Alejandro Antonio Rocha 183368</p>
+        <p>Longitud Contraseña: <input type="number" name="long" id="long" min="8" max="15" value="8"><br></p>
+        <p>Numero de Contraseñas:<input type="number" name="cantidad" id="cantidad" min="1" value="1"> </p>
+        <p>Mayusculas: <input type="checkbox" value="1" name="mayu"><br></p>
+        <p>Minusculas: <input type="checkbox" value="1" name="min"><br></p>
+        <p>Números 0-9: <input type="checkbox" value="1" name="num"><br></p>
+        <p>Caracteres Especiales: <input type="checkbox" value="1" name="cara"><br></p>
+        <p><input type="submit" id="button"/></p>
+    </form>
+    <iframe frameborder="0" width="500" height="400"></iframe>
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+<script>
+function crearPDF(gestor,cantidad){ 
+       var doc = new jsPDF();
+        doc.setFontSize(22);
+       for(i=0;i<cantidad;i++){
+        var fila = '';
+        fila += gestor[i];
+         doc.text(20, 30 + (i*10), fila);
+       }
+       var string = doc.output('datauristring');
+       $('iframe').attr('src', string);
+return false;
+}
+</script>
+    <script>
+        function alertName(){
+         //----------------------- Checks --------------------------------------
+           var long=parseInt(document.forms[0].long.value); 
+           var cantidad=parseInt(document.forms[0].cantidad.value);  
+           var check_mayuscula=(document.forms[0].mayu.checked);
+           var check_minuscula=(document.forms[0].min.checked);
+           var check_numero=(document.forms[0].num.checked);
+           var check_caracter=(document.forms[0].cara.checked);
+           const elementos="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
+           const elementos_sin_n="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+~`|}{[]:;?><,./-=";
+           const mini = "abcdefghijklmnopqrstuvwxyz";
+           const mayu="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+           const num="0123456789";
+           const carac="!@#$%^&*()_+~`|}{[]:;?><,./-=";
+
+//Caso Todo seleccionado:
+    if(check_mayuscula==true && check_minuscula==true && check_caracter==true && check_numero==true){
+        var gestor=[]; 
+        for(var j=0;j<cantidad;j++){ 
+            var password="";
+            var posicion_mini=Math.floor(Math.random()*26);
+            var posicion_mayu=Math.floor(Math.random()*26);
+            var posicion_num=Math.floor(Math.random()*10);
+            var posicion_carac=Math.floor(Math.random()*29);
+            password+=mini[posicion_mini];
+            password+=mayu[posicion_mayu];
+            password+=num[posicion_num];
+            password+=carac[posicion_carac];
+
+            for(var i=4;i<long;i++){
+                password+=elementos[Math.floor(Math.random()*91)];
+            }
+            alert(""+password);
+            gestor[j]=password;
+         }
+         return crearPDF(gestor,cantidad);
+      }
+//Caso sin seleccion
+         if(check_mayuscula==false && check_minuscula==false && check_caracter==false && check_numero==false){
+            alert("Selecciona al menos 1 opcion");
+         }
+//caso sin mayusculas
+         if(check_mayuscula==false && check_minuscula==true && check_caracter==true && check_numero==true){
+            var gestor=[]; 
+            const elementos_noma="abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
+        for(var j=0;j<cantidad;j++){  
+            var password="";
+            var posicion_mini=Math.floor(Math.random()*26);
+            var posicion_num=Math.floor(Math.random()*10);
+            var posicion_carac=Math.floor(Math.random()*29);
+            password+=mini[posicion_mini];
+            password+=carac[posicion_carac];
+            password+=num[posicion_num];
+            for(var i=3;i<long;i++){
+                password+=elementos_noma[Math.floor(Math.random()*65)];
+            }
+            alert(""+password);
+            gestor[j]=password;
+         }
+         return crearPDF(gestor,cantidad);
+      }
+//Caso sin minusculas:
+    if(check_mayuscula==true && check_minuscula==false && check_caracter==true && check_numero==true){
+        var gestor=[]; 
+        const elementos_sinmin="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
+        for(var j=0;j<cantidad;j++){  
+            var password="";
+            var posicion_mayu=Math.floor(Math.random()*26);
+            var posicion_num=Math.floor(Math.random()*10);
+            var posicion_carac=Math.floor(Math.random()*29);
+            password+=num[posicion_num];
+            password+=carac[posicion_carac];
+            password+=mayu[posicion_mayu];
+            for(var i=3;i<long;i++){
+                password+=elementos_sinmin[Math.floor(Math.random()*65)];
+            }
+            alert(""+password);
+            gestor[j]=password;
+         }
+         return crearPDF(gestor,cantidad);
+      }
+//caso sin numeros
+    if(check_mayuscula==true && check_minuscula==true && check_caracter==true && check_numero==false){
+        var gestor=[]; 
+        for(var j=0;j<cantidad;j++){  
+            var password="";
+            var posicion_mini=Math.floor(Math.random()*26);
+            var posicion_mayu=Math.floor(Math.random()*26);
+            var posicion_carac=Math.floor(Math.random()*29);
+            password+=mini[posicion_mini];
+            password+=mayu[posicion_mayu];
+            password+=carac[posicion_carac];
+
+            for(var i=3;i<long;i++){
+                password+=elementos_sin_n[Math.floor(Math.random()*81)];
+            }
+            alert(""+password);
+            gestor[j]=password;
+         }
+         return crearPDF(gestor,cantidad);
+      }
+//Caso sin caracteres
+      if(check_mayuscula==true && check_minuscula==true && check_caracter==false && check_numero==true){
+        var gestor=[]; 
+        for(var j=0;j<cantidad;j++){  
+            const elementos_sinc="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var password="";
+            var posicion_mini=Math.floor(Math.random()*26);
+            var posicion_num=Math.floor(Math.random()*10);
+            var posicion_mayu=Math.floor(Math.random()*26);
+            password+=mayu[posicion_mayu];
+            password+=mini[posicion_mini];
+            password+=num[posicion_num];
+            for(var i=3;i<long;i++){
+                password+=elementos_sinc[Math.floor(Math.random()*62)];
+            }
+            alert(""+password);
+            gestor[j]=password;
+         }
+         return crearPDF(gestor,cantidad);
+      }
+
+//caso mayusculas y minusculas
+      if(check_mayuscula==true && check_minuscula==true && check_caracter==false && check_numero==false){
+        var gestor=[]; 
+        const letras="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        for(var j=0;j<cantidad;j++){  
+            var password="";
+            var posicion_mini=Math.floor(Math.random()*26);
+            var posicion_mayu=Math.floor(Math.random()*26);
+            password+=mini[posicion_mini];
+            password+=mayu[posicion_mayu];
+
+            for(var i=2;i<long;i++){
+                password+=letras[Math.floor(Math.random()*52)];
+            }
+            alert(""+password);
+            gestor[j]=password;
+         }
+         return crearPDF(gestor,cantidad);
+      }
+//caso mayusculas y numeros
+if(check_mayuscula==true && check_minuscula==false && check_caracter==false && check_numero==true){
+    var gestor=[]; 
+    var elementos_1="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        for(var j=0;j<cantidad;j++){  
+            var password="";
+            var posicion_mayu=Math.floor(Math.random()*26);
+            var posicion_num=Math.floor(Math.random()*10);
+            password+=mayu[posicion_mayu];
+            password+=num[posicion_num];
+            for(var i=2;i<long;i++){
+                password+=elementos_1[Math.floor(Math.random()*36)];
+            }
+            alert(""+password);
+            gestor[j]=password;
+         }
+         return crearPDF(gestor,cantidad);
+      }
+//caso mayusculas y simbolos
+if(check_mayuscula==true && check_minuscula==false && check_caracter==true && check_numero==false){
+    var gestor=[]; 
+    var elementos_1="ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+~`|}{[]:;?><,./-=";
+        for(var j=0;j<cantidad;j++){  
+            var password="";
+            var posicion_mayu=Math.floor(Math.random()*26);
+            var posicion_carac=Math.floor(Math.random()*29);
+            password+=mayu[posicion_mayu];
+            password+=carac[posicion_carac];
+            for(var i=2;i<long;i++){
+                password+=elementos_1[Math.floor(Math.random()*55)];
+            }
+            alert(""+password);
+            gestor[j]=password;
+         }
+         return crearPDF(gestor,cantidad);
+      }
+//caso minusculas y numeros
+if(check_mayuscula==false && check_minuscula==true && check_caracter==false && check_numero==true){
+    var gestor=[]; 
+    var elementos_1="abcdefghijklmnopqrstuvwxyz0123456789";
+        for(var j=0;j<cantidad;j++){  
+            var password="";
+            var posicion_mini=Math.floor(Math.random()*26);
+            var posicion_num=Math.floor(Math.random()*10);
+            password+=mini[posicion_mini];
+            password+=num[posicion_num];
+            for(var i=2;i<long;i++){
+                password+=elementos_1[Math.floor(Math.random()*36)];
+            }
+            alert(""+password);
+            gestor[j]=password;
+         }
+         return crearPDF(gestor,cantidad);
+      }
+//caso minusculas y simbolos
+if(check_mayuscula==false && check_minuscula==true && check_caracter==true && check_numero==false){
+    var gestor=[]; 
+    var elementos_1="abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+~`|}{[]:;?><,./-=";
+        for(var j=0;j<cantidad;j++){  
+            var password="";
+            var posicion_mini=Math.floor(Math.random()*26);
+            var posicion_carac=Math.floor(Math.random()*29);
+            password+=mini[posicion_mini];
+            password+=carac[posicion_carac];
+            for(var i=2;i<long;i++){
+                password+=elementos_1[Math.floor(Math.random()*55)];
+            }
+            alert(""+password);
+            gestor[j]=password;
+         }
+         return crearPDF(gestor,cantidad);
+      }
+//caso solo numeros y simbolos
+    if(check_mayuscula==false && check_minuscula==false && check_caracter==true && check_numero==true){
+        var gestor=[]; 
+        const simbolos="0123456789!@#$%^&*()_+~`|}{[]:;?><,./-=";
+        for(var j=0;j<cantidad;j++){  
+            var password="";
+            var posicion_num=Math.floor(Math.random()*10);
+            var posicion_carac=Math.floor(Math.random()*29);
+            password+=num[posicion_num];
+            password+=carac[posicion_carac];
+            for(var i=2;i<long;i++){
+                password+=simbolos[Math.floor(Math.random()*39)];
+            }
+            alert(""+password);
+            gestor[j]=password;
+         }
+         return crearPDF(gestor,cantidad);
+      }
+//caso solo mayusculas
+if(check_mayuscula==true&& check_minuscula==false && check_caracter==false && check_numero==false){
+    var gestor=[]; 
+        for(var j=0;j<cantidad;j++){  
+            var password="";
+            for(var i=0;i<long;i++){
+                password+=mayu[Math.floor(Math.random()*26)];
+            }
+            alert(""+password);
+            gestor[j]=password;
+         }
+         return crearPDF(gestor,cantidad);
+      }
+//Caso solo minusculas
+if(check_mayuscula==false && check_minuscula==true && check_caracter==false && check_numero==false){
+    var gestor=[]; 
+        for(var j=0;j<cantidad;j++){  
+            var password="";
+            for(var i=0;i<long;i++){
+                password+=mini[Math.floor(Math.random()*26)];
+            }
+            alert(""+password);
+            gestor[j]=password;
+         }
+         return crearPDF(gestor,cantidad);
+      }
+//Caso solo numeros
+if(check_mayuscula==false && check_minuscula==false && check_caracter==false && check_numero==true){
+    var gestor=[]; 
+        for(var j=0;j<cantidad;j++){  
+            var password="";
+            for(var i=0;i<long;i++){
+                password+=num[Math.floor(Math.random()*10)];
+            }
+            alert(""+password);
+            gestor[j]=password;
+         }
+         return crearPDF(gestor,cantidad);
+      }
+//caso solo caracteres
+if(check_mayuscula==false && check_minuscula==false && check_caracter==true && check_numero==false){
+    var gestor=[]; 
+        for(var j=0;j<cantidad;j++){  
+            var password="";
+            for(var i=0;i<long;i++){
+                password+=carac[Math.floor(Math.random()*29)];
+            }
+            alert(""+password);
+            gestor[j]=password;
+         }
+         return crearPDF(gestor,cantidad);
+      }
+    }
+    </script>
+</body>
+</html>
