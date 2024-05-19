@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Tercer Parcial</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            background-color: #dedede;
+        }
+/*---------------------------------------------------------------------------------------*/
+#menu{
+    background-color: #192A56;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    font-family:fantasy;
+}
+.elemento{
+    color: #dedede;
+    position: relative;
+    padding: 0;
+    margin-right: 15px;
+    background-color: #192A56;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 120px;
+    height: 50px;
+}
+.elemento:hover{
+    background-color: #FFA500;
+    color:black;
+}
+/*---------------------------------------------------------------------------------------*/
+#P_Semana{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #dedede;
+}
+        .Primer_Semana{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            margin-bottom: 10px;
+        }
+        .practica_ps{
+            color: #dedede;
+            background-color: #6b0505;
+            width: 200px;
+            text-align: center;
+            padding: 2px;
+            margin: 1px;
+        }
+        .practica_ps:hover{
+            cursor: pointer;
+            border: 1px solid black;
+            background-color: #192A56;
+            color: #dedede;
+
+        }
+/*------------------------------------------------------------------------------------*/
+#S_Semana{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #192A56;
+    color: #dedede;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+       .Segunda_Semana{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        .practica_ss{
+            border: 1px solid #dedede;
+            width: 300px;
+            height: 50px;
+            text-align: center;
+            padding: 5px;
+            margin: 1px;
+        }
+        .practica_ss:hover{
+            cursor: pointer;
+        }
+        .preview{
+            width: 300px;
+            height: 250px;
+            margin: 1px;
+            padding: 5px;
+            background-color: #FFA500;
+        }
+        .Elo{
+            display: flex;
+        }
+        .Eli{
+            display: flex;
+        }
+        .imagen{
+            background-color: #192A56;
+            width: 500px;
+            height: 330px;
+            background-size: cover;
+            background-position: center;
+            margin-left: 10px;
+        }
+.fondo_banner{
+    background-color: black;
+    height: 500px;
+    position: relative;
+}
+.fondo_banner>img{
+    position: absolute;
+    opacity: 0.5;
+}
+.texto{
+    left: 32%;
+    top: 32%;
+    color: aliceblue;
+    text-align: center;
+    position: absolute;
+}
+
+    </style>
+</head>
+<body>
+<section id="menu">
+    <div class="elemento" onclick="redirigir('index_tercer_parcial.html')"><p>Inicio</p></div>
+    <div class="elemento" onclick="redirigir('#P_Semana')"><p>Primer Semana</p></div>
+    <div class="elemento" onclick="redirigir('#S_Semana')"><p>Segunda Semana</p></div>
+    <div class="elemento" onclick="redirigir('#T_Semana')"><p>PDF y Examen</p></div>
+</section>
+
+<section id="banner" class="banner">
+    <div class="fondo_banner">
+            <img src="banner.jpeg" width="100%" height="100%">
+            <div class="texto">
+                <h1 style="font-size: 50px; ">Portafolio Tercer Parcial</h1>
+            </div>
+    </div>
+   <!-- <div class="divisor"></div>-->
+</section>
+
+<section id="P_Semana"> 
+<div class="Primer_Semana">
+    <div class="TT" style="text-align: center;"><h1 style="color: #192A56; font-family: 'Lucida Sans';text-align: center;">Semana 1</h1></div>
+    <div class="Elo">
+        <div class="practica_ps" onclick="redirigir('ejecicio_1_js.html')" data-image="parrafos.jpeg"><p>Genera Parrafos</p></div>
+        <div class="practica_ps" onclick="redirigir('tabla.html')" data-image="tabla 1.jpeg"><p>Tabla Según Usuario</p></div>
+    </div>
+    <div class="Elo">
+        <div class="practica_ps" onclick="redirigir('variante_b.html')" data-image="tabla 2.jpeg"><p>Tabla con Caracter</p></div>
+        <div class="practica_ps" onclick="redirigir('tabla_js.html')" data-image="tabla_imagen.png"><p>Tabla con Imagen</p></div>
+    </div>
+    <div class="Elo">
+        <div class="practica_ps" onclick="redirigir('tabala_random.html')" data-image="tabla 3.jpeg"><p>Tabla con Numeros Random</p></div>
+        <div class="practica_ps" onclick="redirigir('login.html')" data-image="login.jpeg"><p>Login</p></div>
+    </div>
+    <div class="Elo">
+        <div class="practica_ps" onclick="redirigir('conversor.html')" data-image="conversor.jpeg"><p>Convertidor de Grados</p></div>
+        <div class="practica_ps" onclick="redirigir('arreglos_js.html')" data-image="arrays.jpeg"><p>Arreglos</p></div>
+    </div>
+</div>
+<div class="imagen"></div>
+</section>
+
+<section id="S_Semana">
+<div class="imagen2"><h1 style="font-family: Arial, Helvetica, sans-serif;">Segunda Semana</h1></div>
+<div class="Segunda_Semana">
+    <div class="Eli">
+        <div>
+            <div class="preview" onclick="redirigir('alert.html')"><img src="alert.jpeg" width="300px" height="250px"></div>
+            <div class="practica_ss" onclick="redirigir('alert.html')"><p>Alert y Prompt</p></div>
+        </div>
+        <div>
+            <div class="preview" onclick="redirigir('graficas_calificaciones.html')"><img src="grafica 1.jpeg" width="300px" height="250px"></div>
+            <div class="practica_ss" onclick="redirigir('graficas_calificaciones.html')"><p>Grafica de Calificaciones</p></div>
+        </div>
+        <div>
+            <div class="preview" onclick="redirigir('grafico_aleatorio.html')"><img src="grafica 2.jpeg" width="300px" height="250px"></div>
+            <div class="practica_ss" onclick="redirigir('grafico_aleatorio.html')"><p>Grafica Aleatorios</p></div>
+        </div>
+        <div>
+            <div class="preview" onclick="redirigir('Canva.html')"><img src="ahorcado.jpeg" width="300px" height="250px"></div>
+            <div class="practica_ss" onclick="redirigir('Canva.html')"><p>Ahorcado con Canva</p></div>
+        </div>
+    </div>
+    <div class="Eli">
+            <div>
+                <div class="preview" onclick="redirigir('ejemplo_graficas.html')"><img src="grafica funciones.jpeg" width="300px" height="250px"></div>
+                <div class="practica_ss" onclick="redirigir('ejemplo_graficas.html')"><p>Ejemplo Grafica Función</p></div>
+            </div>
+            <div>
+                <div class="preview" onclick="redirigir('Geolocalizacion.html')"><img src="geolocalizacion.jpeg" width="300px" height="250px"></div>
+                <div class="practica_ss" onclick="redirigir('Geolocalizacion.html')"><p>Geolocalizacion</p></div>
+            </div>
+            <div>
+                <div class="preview" onclick="redirigir('mapa.html')"><img src="mapa con geo.jpeg" width="300px" height="250px"></div>
+                <div class="practica_ss" onclick="redirigir('mapa.html')"><p>Mapa con Geolocalizacion</p></div>
+            </div>
+            <div>
+                <div class="preview" onclick="redirigir('Reto_funciones.html')"><img src="grafica funciones 2.jpeg" width="300px" height="250px"></div>
+                <div class="practica_ss" onclick="redirigir('Reto_funciones.html')"><p>Reto Grafica Funciones</p></div>
+            </div>   
+    </div>
+</div>
+    </section>
+
+    <section id="T_Semana" style="background-color: #dedede;margin-top: 10px;margin-bottom: 10px;">
+        <div class="Tercer_Semana" style="display: flex; flex-direction: row; justify-content: center;">
+        <div>
+            <h1 style="color: #192A56; font-family: cursive;">Tercer Semana</h1>
+            <h2 style="color: #6b0505; font-family: Arial, Helvetica, sans-serif;">Ejercicios PDF y Examen</h2>
+        </div>
+            <div class="P_TP" style="padding-left: 50px; display: flex;flex-direction: column;">
+            <div style="display: flex; flex-direction: row;">
+                <div class="practica_ps" onclick="redirigir('19-ahorcado.html')" data-image="tabla 1.jpeg"><p>Juego del Ahorcado</p></div>
+                <div class="practica_ps" onclick="redirigir('testalumno.html')" data-image="tabla 1.jpeg"><p>Test de Violencia</p></div>
+                <div class="practica_ps" onclick="redirigir('piramide.html')" data-image="tabla 1.jpeg"><p>Piramide 1</p></div>
+            </div>
+            <div style="display: flex; flex-direction: row;justify-content: space-around;">
+                <div class="practica_ps" onclick="redirigir('ejerciciopdf2.html')" data-image="tabla 1.jpeg"><p>Piramide 2</p></div>
+                <div class="practica_ps" onclick="redirigir('examen.html')" data-image="tabla 1.jpeg"><p>Examen</p></div>
+            </div>
+            </div>    
+        </div>
+    </section>
+    <script>
+        function redirigir(url) {
+    window.location.href = url ; 
+    }
+    </script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var practicaDivs = document.querySelectorAll(".practica_ps");
+            var imagenDiv = document.querySelector(".imagen");
+
+            practicaDivs.forEach(function(div) {
+                div.addEventListener("mouseover", function() {
+                    var imageUrl = div.getAttribute("data-image");
+                    imagenDiv.style.backgroundImage = "url('" + imageUrl + "')";
+                });
+
+                div.addEventListener("mouseout", function() {
+                    imagenDiv.style.backgroundImage = "none";
+                });
+            });
+        });
+    </script>
+</body>
+</html>
