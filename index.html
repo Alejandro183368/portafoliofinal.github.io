@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio</title>
+    <style>
+        body{
+            background-color: #333333;
+            margin: 0px;
+            padding: 0px;
+        }
+        header{
+            background-color: #1f1f1fcc;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color: #e0e0e0;
+            padding: 5px;
+            height: 120px;
+        }
+        .menu{list-style-type: none;padding: 0;display: flex;justify-content: center;}
+        .menu>li{margin-right: 30px;color: #e0e0e0;}
+        .menu>a{text-decoration: none; color:#e0e0e0;margin-right: 20px;margin-bottom: 5px;}
+        .menu>a:hover{background-color: #e0e0e0;color: #333333;padding-top:1px; padding-bottom: 2px;}
+        /*-------------------------------------------------------------------------------*/
+    .galeria{
+        position: relative;
+        height: 400px;
+        width: 100%;
+        display: flex;
+    }
+    .galeria>img{
+        width:0%;
+        flex-grow: 1;
+        object-fit: cover;
+        opacity: .5;
+        height: 100%;
+    }
+    .galeria>img:hover{
+        width: 300px;
+        opacity: 1;
+        filter: contrast(150%);
+        cursor:pointer;
+    }
+    .PP{
+        background-color:#1f1f1f;
+        position: relative;
+        left: 80px;
+        width: 90%;
+        height: 400px;
+        opacity: 0;
+        animation: aparecer 4s forwards 1s;
+    }
+    @keyframes aparecer{
+        from{opacity: 0;}
+        to{opacity: 1;}
+    }
+    .PP>h1{
+        color: rgb(1, 70, 138);
+        text-align: center;
+        font-size: 8mm;
+        padding: 10px;
+        font-weight: bold;
+    }
+    .PP>p{
+        color: #e0e0e0;
+        position: absolute;
+        text-align: justify;
+        width: 500px;
+        top:80px;
+        left: 30px;
+    }
+    button{
+        width: 200px;
+        height: 40px;
+        color: #262626;
+        background-color: #e0e0e0;
+        border-radius: 20px;
+    }
+    .boton{
+        position: absolute;
+        top: 180px;
+        left: 40px;
+        margin: 10px;
+    }
+    button:hover{
+        cursor:pointer;
+        background-color:#262626;
+        color: #e0e0e0;
+        border: 1px solid #e0e0e0;
+
+    }
+    .practicas_p1{
+        position: absolute;
+        left: 600px;
+        width: 680px;
+        height: 300px;
+        display: flex;
+    }
+    .practicas_p1>img{
+        width:0%;
+        flex-grow: 1;
+        object-fit: cover;
+        opacity: .5;
+        height: 100%;
+    }
+    .practicas_p1>img:hover{
+        width: 350px;
+        opacity: 1;
+        filter: contrast(120%);
+    }
+/*-----------------------------------------------------------------------------------------*/
+    .SP{
+        background-color: #1f1f1f;
+        position: relative;
+        left: 80px;
+        width: 90%;
+        height: 400px;
+        opacity: 0;
+        animation: aparecer 4s forwards 3s;
+    }
+    .SP>h1{
+        color: rgb(1, 70, 138);
+        text-align: center;
+        font-size: 8mm;
+        padding: 10px;
+    }
+    .SP>p{
+        color: #e0e0e0;
+        position: absolute;
+        text-align: justify;
+        width: 500px;
+        top:80px;
+        left: 750px;
+    }
+    .boton_2{
+        position: absolute;
+        top: 180px;
+        left: 800px;
+        margin: 10px;
+    }
+    .practicas_p2{
+        position: absolute;
+        left: 30px;
+        width: 680px;
+        height: 300px;
+        display: flex;
+    }
+    .practicas_p2>img{
+        width:0%;
+        flex-grow: 1;
+        object-fit: cover;
+        opacity: .5;
+        height: 100%;
+    }
+    .practicas_p2>img:hover{
+        width: 200px;
+        opacity: 1;
+        filter: contrast(120%);
+    }
+/*-----------------------------------------------------------------------------------------*/
+    .TP{
+        background-color: #1f1f1f;
+        position: relative;
+        left: 80px;
+        width: 90%;
+        height: 400px;
+        opacity: 0;
+        animation: aparecer 4s forwards 5s;
+        margin-bottom: 40px;
+    }
+    .TP>h1{
+        color: rgb(1, 70, 138);
+        text-align: center;
+        font-size: 8mm;
+        padding: 10px;
+    }
+    .TP>p{
+        color: #e0e0e0;
+        position: absolute;
+        text-align: justify;
+        width: 500px;
+        top:80px;
+        left: 30px;
+    }
+    .boton_3{
+        position: absolute;
+        top: 180px;
+        left: 40px;
+        margin: 10px;
+    }
+    .practicas_p3{
+        position: absolute;
+        left: 600px;
+        width: 680px;
+        height: 300px;
+        display: flex;
+    }
+    .practicas_p3>img{
+        width:0%;
+        flex-grow: 1;
+        object-fit: cover;
+        opacity: .5;
+        height: 100%;
+    }
+ .practicas_p3>img:hover{
+        width: 200px;
+        opacity: 1;
+        filter: contrast(120%);
+    }
+    #pie{
+        height: 100px;
+        width: 100%;
+        background-color:#262626;
+        color:#e0e0e0;
+        text-align: center;
+        padding-top: 5px;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PORTAFOLIO</h1>
+    <section class="menu">
+        <a href="#">Inicio</a>
+        <a href="#Primer_P">Primer Parcial</a>
+        <a href="#Segundo_P">Segundo Parcial</a>
+        <a href="#Tercer_P">Tercer Parcial</a>
+    </section>
+    </header>
+    <div class="galeria">
+        <img src="Tecnología.jpg">
+        <img src="descarga.jpg">
+        <img src="wallpaper programming.jpg">
+        <img src="Tecnología.jpg">
+    </div>
+    <section id="Primer_P">
+    <div class="PP">
+            <h1>PRIMER PARCIAL</h1>
+            <p>A lo largo de este parcial realizamos diversas practicas centradas principalmente en la estructura 
+                principal de html, sin incluir a fondo css. Además de algunos retos para reforzar dichas practicas,
+                culminando en un examen practico que incluia todo lo aprendido en este semestre.
+            </p>
+        <div class="boton">
+           <a href="https://portafolio183368.000webhostapp.com"><button>Ver más</button></a>
+        </div>
+        <div class="practicas_p1">
+            <img src="sitiosites.png">
+            <img src="solar.jpg">
+            <img src="sitiocanva.png">
+        </div>
+        </div>
+    </section>
+<!---------------------------------------------------------------------------------------------------------------------------------->
+    <section id="Segundo_P">
+        <div class="SP">
+                <h1>SEGUNDO PARCIAL</h1>
+                <p>A lo largo de este parcial realizamos diversas practicas centradas principalmente adentrarnos a css. 
+                    Además de algunos retos para reforzar dichas practicas, culminando en un examen practico que incluia 
+                    todo lo aprendido en este semestre.
+                </p>
+            <div class="boton_2">
+                <a href="https://183368.000webhostapp.com/Segundo_P/segundo_parcial.html"><button>Ver más</button></a>
+            </div>
+            <div class="practicas_p2">
+                <img src="repro.gif">
+                <img src="barrios.png">
+                <img src="VERSIONA-COMO DEBE QUEDAR.jpg">
+            </div>
+            </div>
+        </section>
+<!-------------------------------------------------------------------------------------------->
+<section id="Tercer_P">
+    <div class="TP">
+            <h1>TERCER PARCIAL</h1>
+            <p>A través de este parcial abordamos el javascript con el cual desarrollamos practicas como un ahorcado, una graficadora de funciones o 
+                inclusive para el examen final un generador de contraseñas random,Además vimos lo que son las Apis y su funcionalidad.
+            </p>
+        <div class="boton_3">
+           <a href="tercer parcial/index.html"><button>Ver más</button></a>
+        </div>
+        <div class="practicas_p3">
+            <img src="ahorcado.png">
+            <img src="reto_funciones.png">
+            <img src="examen.png">
+        </div>
+    </div>
+    </section>
+<!----------------------------------------------------------------------------------------------->
+    <footer id="pie">
+        <p>Desarrollado por: Jesús Alejandro Antonio Rocha 183368</p>
+        <p>Materia: PROGRAMACIÓN WEB</p>
+    </footer>
+</body>
+</html>
+<!--
+Color principal: #333333 (Gris oscuro para el fondo principal).
+Color de títulos: #ff6666 (Rojo oscuro para títulos).
+Color de textos: #cccccc (Gris claro para textos).
+Colores de fondo de secciones:
+#2d2d2d (Gris oscuro ligeramente más claro).
+#262626 (Gris oscuro medio).
+#1f1f1f (Gris oscuro más claro).
+-->
